@@ -2,7 +2,7 @@ Final Project project sketch
 
 Authors: Avi Block and Teddy Laurita
 Date: 11/28/16
-Emails: avram.block@tufts.edu 
+Emails: avram.block@tufts.edu
 		theodore.laurita@tufts.edu
 Usernames: ablock03
 		   tlauri02
@@ -11,5 +11,10 @@ Usernames: ablock03
 ----------------------------Project Sketch----------------------------
 
 ----------------------------Technology Requirements----------------------------
+	We have no experience with JavaScript or HTML, and will need to become
+	familiar with both in order to make this software web-friendly.
 
+	Included in this is requirement of learning to develop software
+	specifically as a Google Chrome Extension.
+	
 ----------------------------Technology Feasability----------------------------
