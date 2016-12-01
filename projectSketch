@@ -2,7 +2,7 @@ Final Project project sketch
 
 Authors: Avi Block and Teddy Laurita
 Date: 11/28/16
-Emails: avram.block@tufts.edu 
+Emails: avram.block@tufts.edu
 		theodore.laurita@tufts.edu
 Usernames: ablock03
 		   tlauri02
@@ -10,16 +10,36 @@ Usernames: ablock03
 
 ----------------------------Project Sketch----------------------------
 
-
+We propose to make a new functionality for use in JavaScript/HTML code in the
+form of a JavaScript object. The functionality added would be for the user to
+be able to move his or her mouse in a spiral motion while holding ctrl in order
+to scroll, instead of having to constantly pick up one's hand as is currently
+necessary with the two finger approach. When ctrl is pressed, the current mouse
+point is stored and displayed as the origin about which the mouse rotates.
+The direction of the mouse movement, and thus direction of scrool, is
+determined by its transition from one "slice" to the next, based on the angle
+of the mouse relative to the x-axis of the origin.
 
 ----------------------------Technology Requirements----------------------------
 
-----------------------------Technology Feasability----------------------------
+We have little to no experience with JavaScript or HTML, and will need to become
+familiar with both in order to make this software web-friendly.
+
+Included in this is the requirement to learn to develop software specifically
+to be utilized as a Google Chrome Extension.
+
+The requirements for this project are low technologically, in that all the
+functionality we plan on using (eg: scrolling a webpage and calculating the
+arcsin) are built into the JavaScript language as it is.
+----------------------------Technology Feasibility----------------------------
 
 An html page of the first 10 chapters of:
-
 From Canal Boy to President or the Boyhood and Manhood of James A. Garfield
 by Horatio Alger, Jr.
 
 This will illustrate how annoying it is to pick one's hand up when one needs to
 scroll over a long page, and will serve as the test file for our project.
+
+The feasibility is extremely high for this project, as the only technology
+utilized is built into the JavaScript and HTML languages. There are no risks as
+to whether this project will be possible.
