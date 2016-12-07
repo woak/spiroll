@@ -1,0 +1,15 @@
+#canvas {
+    font-size: 15px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border:2px;
+    z-index: 1;
+}
+
+.entry.A :not(#canvas) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}

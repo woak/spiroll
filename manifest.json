@@ -1,0 +1,34 @@
+{
+  "manifest_version": 1,
+  "name": "Spiroll",
+  "version": "original",
+
+  "default_locale": "en",
+  "description": "A new, more efficient scrolling gesture. Hold down control and
+        spiral the mouse around the target on the screen to scroll.
+        Clockwise spiral results in downward scrolling,
+        counter-clockwise spiral results in upward scrolling.",
+  "icons": { "16": "spirollogo.jpg"},
+
+  "browser_action": {
+          "default_icon": {
+                    "16": "spirollogo.jpg",
+                    "24": "spirollogo.jpg",
+                    "32": "spirollogo.jpg"
+                  },
+                  "default_title": "Google Mail"}
+  }
+  "author": "Avram Block and Theodore Laurita",
+  "background": {
+    "persistent": false
+  },
+  "content_scripts": [
+          {
+                  "matches": ["http://www.*"],
+                  "css": ["spirollStyle.css"],
+                  "js": ["spiroll.js"]
+          }
+  ],
+  "converted_from_user_script": ...,
+  "offline_enabled": true,
+}

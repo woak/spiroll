@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-<body  onkeydown="setUp()", onkeyup="quit()">
-
-<canvas width=window.innerWidth height=window.innerHeight id="can"></canvas>
-<div id = "contents">
+<body>
+<script src= "spiroll.js"> </script>
+	<div id="contents">
 General Preface.
 
 The present series of volumes has been undertaken with the view of supplying the want of a class of books for children, of a vigorous, manly tone, combined with a plain and concise mode of narration. The writings of Charles Dickens have been selected as the basis of the scheme, on account of the well-known excellence of his portrayal of children, and the interests connected with children—qualities which have given his volumes their strongest hold on the hearts of parents. These delineations having thus received the approval of readers of mature age, it seemed a worthy effort to make the young also participants in the enjoyment of these classic fictions, to introduce the children of real life to these beautiful children of the imagination.
@@ -989,74 +988,6 @@ Though the remainder of the reminiscences somewhat anticipate the course of our 
 More vivid than any picture I could draw is this description, by the most intimate friend of his boyhood, of James Garfield's way of life, his struggles for an education, his constant desire to excel, and his devotion to duty. We have already pictured the rustic boy in his humble room, cooking his own food, and living, as his cousin testifies, on a dollar a week. Is there any other country where such humble beginnings could lead to such influence and power? Is there any other land where such a lad could make such rapid strides toward the goal which crowns the highest ambition? It is the career of such men that most commends our Government and institutions, proving as it does that by the humblest and poorest the highest dignities may be attained. James was content to live on mush and molasses, pork and potatoes, since they came within his narrow means, and gave him sufficient strength to pursue his cherished studies. Nor is his an exceptional case. I have myself known college and professional students who have lived on sixty cents a week (how, it is difficult to tell), while their minds were busy with the loftiest problems that have ever engaged the human intellect. Such boys and young men are the promise of the republic. They toil upwards while others sleep, and many such have written their names high on the tablets in the Temple of Fame.
 
 </div>
-
-<style type = "text/css">
-#contents {
-    font-size: 15px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 2;
-}
-#can {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-}
-</style>
-<script>
-var origX = 0;
-var origY = 0;
-var active = false;
-var prevAngle = 0;
-var curAngle = 0;
-var curX = 0;
-var prevX = 0;
-var AngleDiff = 0;
-
-
-var mousePosition = {x:0, y:0};
-document.addEventListener('mousemove', function(mouseMoveEvent){
-  mousePosition.x = mouseMoveEvent.clientX;
-  mousePosition.y = mouseMoveEvent.clientY;
-  if (active) AngleChange();
-}, false);
-
-var canvas = document.getElementById('can'),
-    context = canvas.getContext('2d');
-
-function setUp() {
-	if (event.keyCode == 17) {
-		origX = mousePosition.x;
-		origY = mousePosition.y;
-		active = true;
-		context.fillRect(origX,origY,100,100);
-	}
-}
-
-function AngleChange() {
-	prevAngle = curAngle;
-	curAngle = Math.atan((mousePosition.y - origY) / (mousePosition.x - origX));
-	if (prevAngle < curAngle) {
-		window.scrollBy(0,10);
-		//context.clearRect(0, 0, canvas.width, canvas.height);
-		context.fillRect(origX, origY + 10, 10, 10);
-	}
-	if (prevAngle > curAngle) {
-		window.scrollBy(0,-10);
-		//context.clearRect(0, 0, canvas.width, canvas.height);
-		context.fillRect(origX, origY - 10, 10, 10);
-	}
-}
-
-function quit() {
-	console.log("done");
-	origX = 0;
-	orgiY = 0;
-	active = false;
-}
-</script>
-
 </body>
+<style src= "spirollStyle.css"> </style>
 </html>

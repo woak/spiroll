@@ -4,36 +4,73 @@
  // 			tlauri02
  // Emails: theodore.laurita@tuft.edu
  // 		 avram.block@tufts.edu
+prevAngle = 0;
+curAngle = 0;
+var mousePosition = {x:0, y:0};
+active = false;
+var canvas = document.createElement('canvas');
+context = canvas.getContext('2d');
 
- while (function keyPressed(event) { if (even.keyCode != 17) break; else console.log("good so far")} {}
-// Authors: Avi Block and Teddy Laurita
-// Date: 11/28/16
-// Usernames: ablock03
-//			   tlauri02
-// Emails: theodore.laurita@tuft.edu
-//		    avram.block@tufts.edu
+document.addEventListener('mousemove', function(mouseMoveEvent){
+   mousePosition.x = mouseMoveEvent.clientX;
+   mousePosition.y = mouseMoveEvent.clientY;
+   if (active) AngleChange();
+ }, false);
 
-// -------------------------sprioll tests------------------------- //
+ document.addEventListener('keydown', function(){
+ 	setUp();
+ });
 
-function Spiroll() {
-	// STUB
-	// SPIROLL OBJECT
+ document.addEventListener('keyup', function(){
+         if (event.keyCode == 17)
+                quit();
+ });
 
-	this.initializeScroll = function() {
-		console.log("KEY PRESSED FUNTION");
-	}
-}
+ function setUp() {
+ 	if (event.keyCode == 17) {
+ 		origX = mousePosition.x;
+ 		origY = mousePosition.y;
+ 		spotY = origY;
+ 		active = true;
+ 		draw();
+ 	}
+ }
 
 
+ function AngleChange() {
+ 	prevAngle = curAngle;
+ 	curAngle = Math.atan((mousePosition.y - origY) / (mousePosition.x - origX));
+ 	if (curAngle > prevAngle) {
+ 		if (spotY <= (document.body.offsetHeight - 10)){
+ 			window.scrollBy(0,10);
+ 			spotY = window.scrollY + origY;
+ 		}
+ 	}
+ 	if (prevAngle > curAngle) {
+ 		if (spotY >= 10){
+ 			window.scrollBy(0,-10);
+ 			spotY = window.scrollY + origY;
+ 		}
+ 	}
+ 	draw();
+ }
 
-// -------------------------initialize object------------------------- //
+ function draw() {
+        context.canvas.width  = window.innerWidth;
+        context.canvas.height = window.innerHeight;
+ 	context.clearRect(0, 0, canvas.width, canvas.height);
+ 	context.fillStyle = "#FF69B4";
+ 	context.fillRect(origX, spotY - 15, 2, 10);
+ 	context.fillRect(origX, spotY + 5, 2, 10);
+ 	context.fillRect(origX - 15, spotY, 10, 2);
+ 	context.fillRect(origX + 5, spotY, 10, 2);
+ 	context.fillRect(origX, spotY, 1, 1);
+ }
 
-spiroll = new Spiroll();
-window.onkeydown = function(e) {
-	var code = e.keyCode ? e.keyCode : e.which;
-	if (code == 17) {
-		spiroll.initializeScroll;
-	}
-	document.getElementById('output').innerHTML = code;
-	console.log("Code:" + code);
-}
+ function quit() {
+ 	context.clearRect(0, 0, canvas.width, canvas.height);
+ 	origX = 0;
+ 	orgiY = 0;
+ 	spotY = 0;
+ 	active = false;
+ }
