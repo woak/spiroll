@@ -9,7 +9,11 @@ curAngle = 0;
 var mousePosition = {x:0, y:0};
 active = false;
 var canvas = document.createElement('canvas');
+
+document.body.appendChild(canvas);
 context = canvas.getContext('2d');
+context.canvas.width  = window.innerWidth;
+
 
 document.addEventListener('mousemove', function(mouseMoveEvent){
    mousePosition.x = mouseMoveEvent.clientX;
@@ -56,8 +60,7 @@ document.addEventListener('mousemove', function(mouseMoveEvent){
  }
 
  function draw() {
-        context.canvas.width  = window.innerWidth;
-        context.canvas.height = window.innerHeight;
+        context.canvas.height = window.height;
  	context.clearRect(0, 0, canvas.width, canvas.height);
  	context.fillStyle = "#FF69B4";
  	context.fillRect(origX, spotY - 15, 2, 10);
