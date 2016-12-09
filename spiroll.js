@@ -4,15 +4,23 @@
  // 			tlauri02
  // Emails: theodore.laurita@tuft.edu
  // 		 avram.block@tufts.edu
+var body = document.body;
+var html = html = document.documentElement;
 prevAngle = 0;
 curAngle = 0;
 var mousePosition = {x:0, y:0};
 active = false;
 var canvas = document.createElement('canvas');
+canvas.setAttribute("id", 'canvas');
+var context = canvas.getContext('2d');
 
+
+canvas.width  = window.innerWidth;
+// calculate the height of window including scroll, different depending on the
+// browser
+canvas.height = Math.max(body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight);
 document.body.appendChild(canvas);
-context = canvas.getContext('2d');
-context.canvas.width  = window.innerWidth;
 
 
 document.addEventListener('mousemove', function(mouseMoveEvent){
@@ -60,7 +68,6 @@ document.addEventListener('mousemove', function(mouseMoveEvent){
  }
 
  function draw() {
-        context.canvas.height = window.height;
  	context.clearRect(0, 0, canvas.width, canvas.height);
  	context.fillStyle = "#FF69B4";
  	context.fillRect(origX, spotY - 15, 2, 10);
