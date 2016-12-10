@@ -15,11 +15,13 @@ canvas.setAttribute("id", 'canvas');
 var context = canvas.getContext('2d');
 
 
-canvas.width  = window.innerWidth;
+canvas.width  = Math.max(body.scrollWidth, body.offsetWidth,
+                       html.clientWidth, html.scrollWidth, html.offsetWidth);
 // calculate the height of window including scroll, different depending on the
 // browser
-canvas.height = Math.max(body.scrollHeight, body.offsetHeight, 
+canvas.height = Math.max(body.scrollHeight, body.offsetHeight,
                        html.clientHeight, html.scrollHeight, html.offsetHeight);
+
 document.body.appendChild(canvas);
 
 
@@ -43,6 +45,7 @@ document.addEventListener('mousemove', function(mouseMoveEvent){
  		origX = mousePosition.x;
  		origY = mousePosition.y;
  		spotY = origY;
+                spotX = origX
  		active = true;
  		draw();
  	}
@@ -56,25 +59,29 @@ document.addEventListener('mousemove', function(mouseMoveEvent){
  		if (spotY <= (document.body.offsetHeight - 10)){
  			window.scrollBy(0,10);
  			spotY = window.scrollY + origY;
+                        spotX = window.scrollX + origX;
  		}
  	}
  	if (prevAngle > curAngle) {
  		if (spotY >= 10){
  			window.scrollBy(0,-10);
  			spotY = window.scrollY + origY;
+                        spotX = window.scrollX + origX;
  		}
  	}
  	draw();
  }
 
  function draw() {
+        canvas.height = Math.max(body.scrollHeight, body.offsetHeight,
+                        html.clientHeight, html.scrollHeight, html.offsetHeight);
  	context.clearRect(0, 0, canvas.width, canvas.height);
  	context.fillStyle = "#FF69B4";
- 	context.fillRect(origX, spotY - 15, 2, 10);
- 	context.fillRect(origX, spotY + 5, 2, 10);
- 	context.fillRect(origX - 15, spotY, 10, 2);
- 	context.fillRect(origX + 5, spotY, 10, 2);
- 	context.fillRect(origX, spotY, 1, 1);
+ 	context.fillRect(spotX, spotY - 15, 2, 10);
+ 	context.fillRect(spotX, spotY + 5, 2, 10);
+ 	context.fillRect(spotX - 15, spotY, 10, 2);
+ 	context.fillRect(spotX + 5, spotY, 10, 2);
+ 	context.fillRect(spotX, spotY, 1, 1);
  }
 
  function quit() {
@@ -82,5 +89,6 @@ document.addEventListener('mousemove', function(mouseMoveEvent){
  	origX = 0;
  	orgiY = 0;
  	spotY = 0;
+        spotX = 0;
  	active = false;
  }
